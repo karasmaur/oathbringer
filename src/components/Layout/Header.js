@@ -3,30 +3,29 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../services/securityActions";
-import { Nav } from 'react-bootstrap';
+import { Navbar, Nav } from 'react-bootstrap';
 
 const Header = (props) => {
     const userIsAuthenticated = (
-        <div>
+        <Navbar.Collapse className="justify-content-end">
+            <Navbar.Text className="navlink">
+                Signed in as: <a href="/" className="loggedName">{props.security.user.fullName}</a>
+            </Navbar.Text>
             <Nav.Item>
-                <Nav.Link href="/">{props.security.user.fullName}</Nav.Link>
+                <Nav.Link className="navlink" href="/logout" onClick={props.logout}>Logout</Nav.Link>
             </Nav.Item>
-            <Nav.Item>
-                <Nav.Link href="/logout" onClick={props.logout}>Logout</Nav.Link>
-            </Nav.Item>
-        </div>
-
+        </Navbar.Collapse>
     );
 
     const userIsNotAuthenticated = (
-        <div>
+        <Navbar.Collapse className="justify-content-end">
             <Nav.Item>
-                <Nav.Link href="/register">Register</Nav.Link>
+                <Nav.Link className="navlink" href="/register">Register</Nav.Link>
             </Nav.Item>
             <Nav.Item>
-                <Nav.Link href="/login">Login</Nav.Link>
+                <Nav.Link className="navlink" href="/login">Login</Nav.Link>
             </Nav.Item>
-        </div>
+        </Navbar.Collapse>
     );
 
     let headerLinks;
@@ -38,12 +37,26 @@ const Header = (props) => {
     }
 
     return (
-        <Nav>
-            <Nav.Item>
-                <Nav.Link href="/">Oathbringer</Nav.Link>
-            </Nav.Item>
+        <Navbar bg="dark" expand="lg" >
+            <Navbar.Brand href="/" className="brandText" >
+                <img
+                    alt=""
+                    src="../../../public/logo.svg"
+                    width="30"
+                    height="30"
+                    className="d-inline-block align-top"
+                />
+                Oathbringer
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link className="navlink" href="/campaignMenu">Campaign</Nav.Link>
+                    <Nav.Link className="navlink" href="#link">Link</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
             {headerLinks}
-        </Nav>
+        </Navbar>
     );
 };
 

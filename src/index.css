@@ -3,3 +3,21 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
+.navbar {
+  color: azure;
+}
+.navlink {
+  color: aliceblue!important;
+}
+.loggedName {
+  color: aliceblue!important;
+  font-style: italic;
+  text-decoration: underline;
+}
+.navlink:hover {
+  color: rgba(205,36,46,0.9);
+}
+.brandText {
+  color: rgba(205,54,0,0.9)!important;
+  font-weight: bold!important;
+}

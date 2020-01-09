@@ -5,11 +5,13 @@ import setJWTToken from "./securityUtils/setJWTToken";
 import { logout } from "./services/securityActions";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
+import SecuredRoute from "./securityUtils/SecureRoute";
 import store from "./store";
 import Header from "./components/Layout/Header";
 import Landing from "./components/Layout/Landing";
 import Register from "./components/User/Register";
 import Login from "./components/User/Login";
+import CampaignMenu from "./components/Campaign/CampaignMenu";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -40,9 +42,7 @@ const App = () => {
                     <Route exact path="/login" component={Login} />
 
                     <Switch>
-                        {
-                            //Add "SecureRoute" here.
-                        }
+                        <SecuredRoute exact path="/campaignMenu" component={CampaignMenu} />
                     </Switch>
                 </div>
             </Router>
