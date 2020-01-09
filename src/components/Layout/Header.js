@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../services/securityActions";
@@ -40,19 +39,19 @@ const Header = (props) => {
         <Navbar bg="dark" expand="lg" >
             <Navbar.Brand href="/" className="brandText" >
                 <img
-                    alt=""
-                    src="../../../public/logo.svg"
+                    alt=''
+                    src="/logo.svg"
                     width="30"
                     height="30"
                     className="d-inline-block align-top"
-                />
+                />{' '}
                 Oathbringer
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <Nav.Link className="navlink" href="/campaignMenu">Campaign</Nav.Link>
-                    <Nav.Link className="navlink" href="#link">Link</Nav.Link>
+                    <Nav.Link className="navlink" href="#link">Characters</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             {headerLinks}

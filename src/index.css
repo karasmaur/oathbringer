@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: 'Cinzel', serif;
 }
 .navbar {
   color: azure;
@@ -20,4 +20,21 @@ body {
 .brandText {
   color: rgba(205,54,0,0.9)!important;
   font-weight: bold!important;
+  font-family: 'New Rocker', cursive;
+}
+.landing {
+  position: relative;
+  /* background: url("../img/showcase.jpg") no-repeat; */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  margin-top: -24px;
+  margin-bottom: -50px;
+}
+.landing-inner {
+  padding-top: 80px;
+}
+.btn-primary,  .btn-info {
+  background-color: rgba(205, 19, 0, 0.9) !important;
+  border-color: rgba(205, 19, 0, 0.9)  !important;
 }

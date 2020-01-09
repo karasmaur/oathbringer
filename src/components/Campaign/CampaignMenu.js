@@ -3,7 +3,9 @@ import React from "react";
 const CampaignMenu = () => {
     return(
       <div>
-          oi
+          <p>
+              oi
+          </p>
       </div>
     );
 };
