@@ -6,13 +6,21 @@ import { Navbar, Nav } from 'react-bootstrap';
 
 const Header = (props) => {
     const userIsAuthenticated = (
-        <Navbar.Collapse className="justify-content-end">
-            <Navbar.Text className="navlink">
-                Signed in as: <a href="/" className="loggedName">{props.security.user.fullName}</a>
-            </Navbar.Text>
-            <Nav.Item>
-                <Nav.Link className="navlink" href="/logout" onClick={props.logout}>Logout</Nav.Link>
-            </Nav.Item>
+        <Navbar.Collapse>
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="mr-auto">
+                    <Nav.Link className="navlink" href="/campaignMenu">Campaign</Nav.Link>
+                    <Nav.Link className="navlink" href="/characters">Characters</Nav.Link>
+                </Nav>
+            </Navbar.Collapse>
+            <Navbar.Collapse className="justify-content-end">
+                <Navbar.Text className="navlink">
+                    Signed in as: <a href="/" className="loggedName">{props.security.user.fullName}</a>
+                </Navbar.Text>
+                <Nav.Item>
+                    <Nav.Link className="navlink" href="/logout" onClick={props.logout}>Logout</Nav.Link>
+                </Nav.Item>
+            </Navbar.Collapse>
         </Navbar.Collapse>
     );
 
@@ -36,10 +44,10 @@ const Header = (props) => {
     }
 
     return (
-        <Navbar bg="dark" expand="lg" >
+        <Navbar bg="dark" expand="lg" className="navbar-main">
             <Navbar.Brand href="/" className="brandText" >
                 <img
-                    alt=''
+                    alt='sword'
                     src="/logo.svg"
                     width="30"
                     height="30"
@@ -48,12 +56,6 @@ const Header = (props) => {
                 Oathbringer
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mr-auto">
-                    <Nav.Link className="navlink" href="/campaignMenu">Campaign</Nav.Link>
-                    <Nav.Link className="navlink" href="#link">Characters</Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
             {headerLinks}
         </Navbar>
     );

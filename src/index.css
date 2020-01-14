@@ -38,3 +38,18 @@ body {
   background-color: rgba(205, 19, 0, 0.9) !important;
   border-color: rgba(205, 19, 0, 0.9)  !important;
 }
+.navbar-main {
+  background-color: rgba(0, 0, 0, 0.74) !important;
+}
+.sideMenu {
+  background-color: rgba(0, 0, 0, 0.67) !important;
+}
+.sideMenuLink.active {
+  background-color: rgba(205,54,0,0.9) !important;
+}
+.sideMenuLink {
+  color: aliceblue;
+}
+.sideMenuLink:hover {
+  color: rgba(205,54,0,0.9);
+}

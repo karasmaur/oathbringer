@@ -11,7 +11,8 @@ import Header from "./components/Layout/Header";
 import Landing from "./components/Layout/Landing";
 import Register from "./components/User/Register";
 import Login from "./components/User/Login";
-import CampaignMenu from "./components/Campaign/CampaignMenu";
+import CampaignMenu from "./components/Campaign/campaignMenu";
+import Notes from './components/Campaign/Notes';
 
 const jwtToken = localStorage.jwtToken;
 
