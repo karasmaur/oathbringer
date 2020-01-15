@@ -11,8 +11,7 @@ import Header from "./components/Layout/Header";
 import Landing from "./components/Layout/Landing";
 import Register from "./components/User/Register";
 import Login from "./components/User/Login";
-import CampaignMenu from "./components/Campaign/campaignMenu";
-import Notes from './components/Campaign/Notes';
+import CampaignMenu from "./components/Campaign/CampaignMenu";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -39,11 +38,11 @@ const App = () => {
                     <Header />
 
                     <Route exact path="/" component={Landing} />
-                    <Route exact path="/register" component={Register} />
-                    <Route exact path="/login" component={Login} />
+                    <Route  path="/register" component={Register} />
+                    <Route  path="/login" component={Login} />
 
                     <Switch>
-                        <SecuredRoute exact path="/campaignMenu" component={CampaignMenu} />
+                        <SecuredRoute  path="/campaignMenu" component={CampaignMenu} />
                     </Switch>
                 </div>
             </Router>

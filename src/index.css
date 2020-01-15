@@ -2,6 +2,10 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Cinzel', serif;
+  background-color: rgba(0,0,0,0.61);
+}
+.p {
+  color: aliceblue!important;
 }
 .navbar {
   color: azure;
@@ -42,7 +46,7 @@ body {
   background-color: rgba(0, 0, 0, 0.74) !important;
 }
 .sideMenu {
-  background-color: rgba(0, 0, 0, 0.67) !important;
+  background-color: rgba(0, 0, 0, 0.59) !important;
 }
 .sideMenuLink.active {
   background-color: rgba(205,54,0,0.9) !important;

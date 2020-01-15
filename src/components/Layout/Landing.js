@@ -16,11 +16,11 @@ const Landing = (props) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-12 text-center">
-                            <h3 className="display-4 mb-4">
+                            <h3 className="display-4 mb-4" style={{color: "white"}}>
                                 Welcome to Oathbringer.
                             </h3>
-                            <p className="lead">With this app you can create and manage your D&D characters during your campaigns!</p>
-                            <p >
+                            <p className="lead" style={{color: "white"}}>With this app you can create and manage your D&D characters during your campaigns!</p>
+                            <p style={{color: "white"}}>
                                 Create an account to start making and managing your characters:
                             </p>
                             <hr />
