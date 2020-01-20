@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { createNewUser } from "../../services/securityActions";
+import { createNewUser } from "../../services/securityService";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
@@ -42,6 +42,8 @@ const Register = (props) => {
         }
     });
 
+    // Todo: Change style to match the rest of the site.
+    // Todo: Create single custom hook to reduce code and use spread syntax in the forms.
     return (
         <div>
             <h1>Sign Up</h1>

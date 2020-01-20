@@ -3,6 +3,7 @@ body {
   padding: 0;
   font-family: 'Cinzel', serif;
   background-color: rgba(0,0,0,0.61);
+  color: aliceblue;
 }
 .p {
   color: aliceblue!important;
@@ -11,6 +12,9 @@ body {
   color: azure;
 }
 .navlink {
+  color: aliceblue!important;
+}
+.dropdownTitle {
   color: aliceblue!important;
 }
 .loggedName {
@@ -47,13 +51,51 @@ body {
 }
 .sideMenu {
   background-color: rgba(0, 0, 0, 0.59) !important;
-}
-.sideMenuLink.active {
-  background-color: rgba(205,54,0,0.9) !important;
+  border-color: aliceblue!important;
 }
 .sideMenuLink {
   color: aliceblue;
 }
 .sideMenuLink:hover {
   color: rgba(205,54,0,0.9);
+}
+.sideMenuLinkActive {
+  color: aliceblue;
+  background-color: rgba(205,54,0,0.9)!important;
+}
+.login {
+  padding-top: 40px;
+  padding-left: 40px;
+}
+.loginForm {
+  width: 25%;
+}
+.innerCreateForm {
+  background-color: #222222;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.outerCreateForm {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+.toggleItemList {
+  background-color: rgba(205,54,0,0.9)!important;
+  text-align: center;
+  line-height: 240px;
+}
+.toggleItemList:hover {
+  color: black;
+  cursor: pointer;
+}
+.itemListItem {
+  color: aliceblue!important;
+  background-color: rgba(0, 0, 0, 0.59) !important;
+}
+.itemListItem.active {
+  background-color: rgba(205,54,0,0.9) !important;
 }

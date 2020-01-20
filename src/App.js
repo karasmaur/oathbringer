@@ -2,7 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import jwt_decode from "jwt-decode";
 import setJWTToken from "./securityUtils/setJWTToken";
-import { logout } from "./services/securityActions";
+import { logout } from "./services/securityService";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import SecuredRoute from "./securityUtils/SecureRoute";
@@ -12,6 +12,7 @@ import Landing from "./components/Layout/Landing";
 import Register from "./components/User/Register";
 import Login from "./components/User/Login";
 import CampaignMenu from "./components/Campaign/CampaignMenu";
+import CreateCampaign from "./components/Campaign/CreateCampaign";
 
 const jwtToken = localStorage.jwtToken;
 
@@ -38,11 +39,12 @@ const App = () => {
                     <Header />
 
                     <Route exact path="/" component={Landing} />
-                    <Route  path="/register" component={Register} />
-                    <Route  path="/login" component={Login} />
+                    <Route path="/register" component={Register} />
+                    <Route path="/login" component={Login} />
 
                     <Switch>
-                        <SecuredRoute  path="/campaignMenu" component={CampaignMenu} />
+                        <SecuredRoute path="/campaign/:id/menu" component={CampaignMenu} />
+                        <SecuredRoute path="/createCampaign" component={CreateCampaign} />
                     </Switch>
                 </div>
             </Router>

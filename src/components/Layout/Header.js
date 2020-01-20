@@ -1,15 +1,30 @@
-import React from "react";
+import React, {useEffect} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { logout } from "../../services/securityActions";
-import { Navbar, Nav } from 'react-bootstrap';
+import { logout } from "../../services/securityService";
+import { getCampaigns } from "../../services/campaignService";
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 const Header = (props) => {
+    useEffect(() => {
+        props.getCampaigns();
+    }, []);
+
     const userIsAuthenticated = (
         <Navbar.Collapse>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link className="navlink" href="/campaignMenu">Campaign</Nav.Link>
+                    <NavDropdown title={<span className="dropdownTitle">Campaigns</span>} id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/createCampaign">Create New Campaign</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        {
+                            props.campaigns.slice(0, 3).map(campaign => (
+                                <NavDropdown.Item key={campaign.id} href={`/campaign/${campaign.id}/menu`}>{campaign.name}</NavDropdown.Item>
+                            ))
+                        }
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="/campaign">More...</NavDropdown.Item>
+                    </NavDropdown>
                     <Nav.Link className="navlink" href="/characters">Characters</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
@@ -63,14 +78,17 @@ const Header = (props) => {
 
 Header.propTypes = {
     logout: PropTypes.func.isRequired,
-    security: PropTypes.object.isRequired
+    getCampaigns: PropTypes.func.isRequired,
+    security: PropTypes.object.isRequired,
+    campaigns: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
-    security: state.security
+    security: state.security,
+    campaigns: state.campaign.campaigns
 });
 
 export default connect(
     mapStateToProps,
-    { logout }
+    { logout, getCampaigns }
 )(Header);

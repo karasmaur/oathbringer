@@ -1,8 +1,8 @@
 import React, { useState, useEffect} from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { login } from "../../services/securityActions";
-import { Form } from 'react-bootstrap';
+import { login } from "../../services/securityService";
+import { Form, Button } from 'react-bootstrap';
 
 const Login = (props) => {
     const [username, setUserName] = useState("");
@@ -32,28 +32,30 @@ const Login = (props) => {
     });
 
     return (
-      <div>
-          <h1>Log in</h1>
-          <Form onSubmit={loginOnSubmit}>
-              <div>
-                  <input
-                      type="text"
-                      placeholder="Username"
-                      name="username"
-                      value={username}
-                      onChange={handleUserNameChange}
+      <div className="login">
+          <h2>Log in</h2>
+          <Form onSubmit={loginOnSubmit} className="loginForm">
+              <Form.Group controlId="formBasicEmail">
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control type="email"
+                                placeholder="Enter email"
+                                name="username"
+                                value={username}
+                                onChange={handleUserNameChange}
                   />
-              </div>
-              <div>
-                  <input
-                      type="password"
-                      placeholder="Password"
-                      name="password"
-                      value={password}
-                      onChange={handlePasswordChange}
+              </Form.Group>
+              <Form.Group controlId="formBasicPassword">
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control type="password"
+                                placeholder="Password"
+                                name="password"
+                                value={password}
+                                onChange={handlePasswordChange}
                   />
-              </div>
-              <input type="submit"/>
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                  Login
+              </Button>
           </Form>
       </div>
     );

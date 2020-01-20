@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import {Form} from 'react-bootstrap';
 
-const Notes = () => {
+const CreateNote = () => {
     const [note, setNote] = useState('');
 
     const onChange = (event) => {
@@ -10,7 +10,6 @@ const Notes = () => {
 
     return (
         <div>
-            <br/>
             <Form>
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label>Current Sessions Notes</Form.Label>
@@ -22,4 +21,4 @@ const Notes = () => {
     );
 };
 
-export default Notes;
+export default CreateNote;
