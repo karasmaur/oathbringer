@@ -99,3 +99,11 @@ body {
 .itemListItem.active {
   background-color: rgba(205,54,0,0.9) !important;
 }
+.createNewButton {
+  padding-top: 9px;
+  padding-bottom: 9px;
+  width: 166px;
+  color: aliceblue;
+  background-color: rgba(205,54,0,0.9);
+  border: none;
+}

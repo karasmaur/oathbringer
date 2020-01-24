@@ -1,10 +1,12 @@
 import axios from "axios";
 
+
+// Workaround to use the json-server before creating the actual backend.
 export const getNotes = (id) => async dispatch => {
-    const res = await axios.get(`http://localhost:3001/campaign/${id}/notes`);
+    const res = await axios.get(`http://localhost:3001/campaigns/${id}`); // TODO: add "/notes" at the end
     dispatch({
         type: "GET_NOTES",
-        payload: res.data
+        payload: res.data.notes // TODO: Remove ".notes"
     });
 };
 
