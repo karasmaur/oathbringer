@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {Row, Col, Form, ListGroup} from 'react-bootstrap';
 import {connect} from "react-redux";
-import {getNotes} from "../../services/noteService";
+import {getNotes, createNewNote} from "../../services/noteService";
 
 const useField = (type) => {
     const [value, setValue] = useState('');
@@ -77,6 +77,15 @@ const CreateNote = (props) => {
         props.getNotes(props.match.params.id);
     }, []);
 
+    const onSubmit = () => {
+        const newNote = {
+            id: id.value,
+            title: title.value,
+            text: text.value
+        };
+        props.createNewNote(newNote);
+    };
+
     return (
             <Row>
                 <Col sm={0}>
@@ -87,7 +96,7 @@ const CreateNote = (props) => {
                 {itemsList}
                 <Col  sm={8}>
                     <div>
-                        <Form>
+                        <Form onSubmit={onSubmit}>
                             <Form.Group controlId="ControlTextarea1">
                                 <Form.Label>Title</Form.Label>
                                 <Form.Control {...title.form} placeholder="" />
@@ -110,5 +119,5 @@ const mapStateToProps = state => ({
 
 export default connect(
     mapStateToProps,
-    { getNotes }
+    { getNotes, createNewNote }
 )(CreateNote);

@@ -4,17 +4,17 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 const Register = (props) => {
-    const [username, setUsername] = useState('');
-    const [fullName, setFullName] = useState('');
+    const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const handleUserNameChange = (event) => {
-      setUsername(event.target.value)
+      setEmail(event.target.value)
     };
 
     const handleNameChange = (event) => {
-        setFullName(event.target.value)
+        setName(event.target.value)
     };
 
     const handlePasswordChange = (event) => {
@@ -28,8 +28,8 @@ const Register = (props) => {
     const addUser = async (event) => {
         event.preventDefault();
         const userObject = {
-            username: username,
-            fullName: fullName,
+            email: email,
+            name: name,
             password: password,
             confirmPassword: confirmPassword
         };
@@ -52,9 +52,9 @@ const Register = (props) => {
                 <div>
                     <input
                         type="text"
-                        placeholder="Username"
-                        name="username"
-                        value={username}
+                        placeholder="E-mail"
+                        name="email"
+                        value={email}
                         onChange={handleUserNameChange}
                     />
                 </div>
@@ -62,8 +62,8 @@ const Register = (props) => {
                     <input
                         type="text"
                         placeholder="Full name"
-                        name="fullName"
-                        value={fullName}
+                        name="name"
+                        value={name}
                         onChange={handleNameChange}
                     />
                 </div>

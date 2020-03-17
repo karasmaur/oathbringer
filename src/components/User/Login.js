@@ -5,11 +5,11 @@ import { login } from "../../services/securityService";
 import { Form, Button } from 'react-bootstrap';
 
 const Login = (props) => {
-    const [username, setUserName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleUserNameChange = (event) => {
-        setUserName(event.target.value)
+    const handleEmailChange = (event) => {
+        setEmail(event.target.value)
     };
 
     const handlePasswordChange = (event) => {
@@ -19,7 +19,7 @@ const Login = (props) => {
     const loginOnSubmit = async (event) => {
            event.preventDefault();
            const loginRequest = {
-               username: username,
+               email: email,
                password: password
            };
            props.login(loginRequest);
@@ -39,9 +39,9 @@ const Login = (props) => {
                   <Form.Label>Email address</Form.Label>
                   <Form.Control type="email"
                                 placeholder="Enter email"
-                                name="username"
-                                value={username}
-                                onChange={handleUserNameChange}
+                                name="email"
+                                value={email}
+                                onChange={handleEmailChange}
                   />
               </Form.Group>
               <Form.Group controlId="formBasicPassword">
