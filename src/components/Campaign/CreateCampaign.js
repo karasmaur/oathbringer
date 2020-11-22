@@ -28,15 +28,13 @@ const CreateCampaign = (props) => {
     const name = useField("text");
     const gameMaster = useField("text");
     const gameType = useField("select");
-    const gameSetting = useField("select");
 
     const onSubmit = async (event) => {
         event.preventDefault();
         const newCampaign = {
             name: name.value,
             gameMaster: gameMaster.value,
-            gameType: gameType.value,
-            gameSetting: gameSetting.value
+            gameType: gameType.value
         };
         props.createNewCampaign(newCampaign, props.history);
     };
@@ -71,16 +69,6 @@ const CreateCampaign = (props) => {
                         <Col sm={fieldSize}>
                             <Form.Control as="select" {...gameType}>
                                 {gameTypeOptions.map(option => (<option key={option.id}>{option.value}</option>))}
-                            </Form.Control>
-                        </Col>
-                    </Form.Group>
-                    <Form.Group as={Row} controlId="gameSetting">
-                        <Form.Label column sm={labelSize}>
-                            Game Setting
-                        </Form.Label>
-                        <Col sm={fieldSize}>
-                            <Form.Control as="select" {...gameSetting}>
-                                {gameSettingOptions.map(option => (<option key={option.id}>{option.value}</option>))}
                             </Form.Control>
                         </Col>
                     </Form.Group>

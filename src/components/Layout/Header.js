@@ -3,11 +3,15 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logout } from "../../services/securityService";
 import { getCampaigns } from "../../services/campaignService";
+import { getCharacters } from "../../services/characterService";
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 
 const Header = (props) => {
     useEffect(() => {
         props.getCampaigns();
+    }, []);
+    useEffect(() => {
+        props.getCharacters();
     }, []);
 
     const userIsAuthenticated = (
@@ -15,7 +19,7 @@ const Header = (props) => {
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
                     <NavDropdown title={<span className="dropdownTitle">Campaigns</span>} id="basic-nav-dropdown">
-                        <NavDropdown.Item href="/createCampaign">Create New Campaign</NavDropdown.Item>
+                        <NavDropdown.Item href="/createCampaign">Create campaign</NavDropdown.Item>
                         <NavDropdown.Divider />
                         {
                             props.campaigns.slice(0, 3).map(campaign => (
@@ -25,7 +29,18 @@ const Header = (props) => {
                         <NavDropdown.Divider />
                         <NavDropdown.Item href="/campaign">More...</NavDropdown.Item>
                     </NavDropdown>
-                    <Nav.Link className="navlink" href="/characters">Characters</Nav.Link>
+                    <NavDropdown title={<span className="dropdownTitle">Characters</span>} id="basic-nav-dropdown">
+                        <NavDropdown.Item href="/createCharacter">Create Character</NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        {
+                            props.characters.slice(0, 3).map(character => (
+                                <NavDropdown.Item key={character.id} href={`/character/${character.id}/menu`}>{character.name}</NavDropdown.Item>
+                            ))
+                        }
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item href="/campaign">More...</NavDropdown.Item>
+                    </NavDropdown>
+                    <Nav.Link className="navlink" href="/items">Items</Nav.Link>
                 </Nav>
             </Navbar.Collapse>
             <Navbar.Collapse className="justify-content-end">
@@ -79,16 +94,19 @@ const Header = (props) => {
 Header.propTypes = {
     logout: PropTypes.func.isRequired,
     getCampaigns: PropTypes.func.isRequired,
+    getCharacters: PropTypes.func.isRequired,
     security: PropTypes.object.isRequired,
-    campaigns: PropTypes.array.isRequired
+    campaigns: PropTypes.array.isRequired,
+    characters: PropTypes.array.isRequired
 };
 
 const mapStateToProps = state => ({
     security: state.security,
-    campaigns: state.campaign.campaigns
+    campaigns: state.campaign.campaigns,
+    characters: state.character.characters,
 });
 
 export default connect(
     mapStateToProps,
-    { logout, getCampaigns }
+    { logout, getCampaigns, getCharacters }
 )(Header);
